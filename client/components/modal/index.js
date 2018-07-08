@@ -19,7 +19,7 @@ export default class Modal extends Component {
   render({ view }) {
     return (
       <div>
-        <form onsubmit={handleSubmit}>
+        <form onsubmit={this.handleSubmit}>
           <input id="addName" placeholder="Name"/>
           <input type="submit" value="Add"/>
         </form>

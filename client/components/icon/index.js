@@ -33,15 +33,15 @@ export default class Icon extends Component {
                 <path d="M0 0h24v24H0z" fill="none"/>
                 <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
               </g>
-      case 'left':
-        return <g>
-                <path d="M15.4 7.4L14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/>
-                <path d="M0 0h24v24H0z" fill="none"/>
-              </g>
       case 'right':
         return <g>
                 <path d="M10 6L8.6 7.4l4.6 4.6-4.6 4.6L10 18l6-6z"/>
                 <path d="M0 0h24v24H0z" fill="none"/>
+              </g>
+      case 'undo':
+        return <g>
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12.5 8c-2.6 0-5 1-6.9 2.6L2 7v9h9l-3.6-3.6A8 8 0 0 1 20 16l2.4-.8a10.5 10.5 0 0 0-10-7.2z"/>
               </g>
     }
   }

@@ -17,7 +17,7 @@ export default {
       .filter(contact => contact.type === 'lead')
       .sort((a, b) => a.date < b.date);
   },
-  get customers() {
+  get clients() {
     return this.contacts
       .filter(contact => contact.type === 'customer')
       .sort((a, b) => a.date < b.date);

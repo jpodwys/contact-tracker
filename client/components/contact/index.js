@@ -25,9 +25,11 @@ export default class Contact extends Component {
   //   copyText(date + ' ' + text);
   // }
 
-  render({ id, type, name, date }) {
+  render({ id, type, name, date, color }) {
     return (
-      <div>{name}</div>
+      <div style={"background-color:" + color}>
+        <h3>{name}</h3>
+      </div>
     );
   }
 }

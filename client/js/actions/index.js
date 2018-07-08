@@ -1,12 +1,13 @@
-import { findObjectIndexById, removeObjectByIndex } from '../utils';
+import { findObjectIndexById, removeObjectByIndex, generateHexCode } from '../utils';
 
-function linkstate (el, { key, val, cb }){
+function linkstate (el, { key, val, cb }) {
   el.setState({ [key]: val }, cb);
 };
 
 function addContact(el, { contact, view }) {
   contact.id = Date.now();
   contact.type = view.slice(0, -1);
+  contact.color = generateHexCode();
   el.state.contacts.push(contact);
   el.setState({ contacts: [].concat(el.state.contacts) });
 };

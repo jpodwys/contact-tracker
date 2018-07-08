@@ -9,4 +9,8 @@ function removeObjectByIndex (index, list) {
   return list;
 };
 
-export { findObjectIndexById, removeObjectByIndex };
+function generateHexCode () {
+  return '#'+Math.floor(Math.random()*16777215).toString(16);
+};
+
+export { findObjectIndexById, removeObjectByIndex, generateHexCode };
