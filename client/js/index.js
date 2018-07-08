@@ -3,8 +3,8 @@ import App from '../components/app';
 
 render(<App />, document.body);
 
-// if('serviceWorker' in navigator){
-  // navigator.serviceWorker.register('/sw.js');
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js');
   
   // navigator.serviceWorker.onmessage = function (e) {
   //   let eTag = e.data;
@@ -16,4 +16,4 @@ render(<App />, document.body);
   //     if(isNew) location.reload();
   //   }
   // };
-// }
+}

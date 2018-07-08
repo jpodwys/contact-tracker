@@ -10,7 +10,10 @@ export default class Contact extends Component {
   render({ id, type, name, date, color }) {
     const ago = dayjs().to(dayjs(date));
     return (
-      <div style={"background-color:" + color} onclick={fire('updateContact', {id, contact: {date: Date.now()}})}>
+      <div
+        key={id}
+        style={"background-color:" + color}
+        onclick={fire('updateContact', {id, contact: {date: Date.now()}})}>
         <h3>{name}</h3>
         <span>{ago}</span>
       </div>

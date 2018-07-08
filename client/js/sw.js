@@ -1,31 +1,16 @@
 let version;
-let CACHE = 'preact-journal';
+let CACHE = 'contact-tracker';
  
 self.addEventListener('install', function(e) {
   e.waitUntil(caches.open(CACHE).then(function (cache) {
-    cache.addAll(['/', '/manifest.json', '/favicon.ico', '/icon-192x192.png']);
+    cache.addAll(['/'/*, '/manifest.json', '/favicon.ico', '/icon-192x192.png'*/]);
   }));
 });
  
 self.addEventListener('fetch', function(e) {
-  if(e.request.method !== 'GET') return
-  if(~e.request.url.indexOf('/api')) return
-  
-  // All routes return the same payload. As such, cache only '/'
-  // and return its cached value on all routes.
-  let reqUrl;
-  let url = e.request.url
-  if(~url.indexOf('/entries') || ~url.indexOf('/entry/')){
-    reqUrl = '/';
-  }
-
-  e.respondWith(fromCache(reqUrl || e.request));
-
-  if(~url.indexOf('manifest') || ~url.indexOf('favicon')) return;
-  e.waitUntil(
-    update(reqUrl || e.request)
-    // .then(refresh)
-  );
+  e.respondWith(fromCache(e.request));
+  if(~url.indexOf('manifest') || ~url.indexOf('icon')) return;
+  e.waitUntil(update(e.request));
 });
  
 function fromCache(request) {
@@ -44,12 +29,3 @@ function update(request) {
     });
   });
 }
- 
-// function refresh(response) {
-//   if(!response) return;
-//   return self.clients.matchAll().then(function (clients) {
-//     clients.forEach(function (client) {
-//       client.postMessage(response.headers.get('ETag'));
-//     });
-//   });
-// }
