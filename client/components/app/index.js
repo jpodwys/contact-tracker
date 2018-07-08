@@ -28,7 +28,7 @@ export default class App extends Component {
         </main>
         {/* <Footer view={ state.view }/> */}
         {state.showModal &&
-          <Modal/>
+          <Modal view={state.view}/>
         }
       </div>
     );

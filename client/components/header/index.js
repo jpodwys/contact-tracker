@@ -8,7 +8,7 @@ export default class Header extends Component {
 			<header class="elevated">
 				<span class="nav-set">
 					<h3
-						class="grow"
+						class={view === 'leads' ? 'grow active' : 'grow'}
 						onclick={fire('linkstate', {key: 'view', val: 'leads'})}>
 						Leads
 					</h3>
@@ -16,7 +16,7 @@ export default class Header extends Component {
 
 				<span class="nav-set">
 					<h3
-						class="grow"
+						class={view === 'clients' ? 'grow active' : 'grow'}
 						onclick={fire('linkstate', {key: 'view', val: 'clients'})}>
 						Clients
 					</h3>

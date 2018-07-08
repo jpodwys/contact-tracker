@@ -11,6 +11,10 @@ header .nav-set h3 {
   padding: 14px 15px;
 }
 
+header .nav-set h3.active {
+  color: #ff8c00;
+}
+
 * {
   transition:
     background-color .35s ease,

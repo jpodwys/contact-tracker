@@ -1,5 +1,5 @@
 let view = localStorage.getItem('view') || 'leads';
-let contacts = localStorage.getItem('contacts') || [];
+let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
 
 export default {
   get view() { return view; },
@@ -13,13 +13,13 @@ export default {
     localStorage.setItem('contacts', JSON.stringify(c));
   },
   get leads() {
-    return this.contacts
+    return contacts
       .filter(contact => contact.type === 'lead')
       .sort((a, b) => a.date < b.date);
   },
   get clients() {
-    return this.contacts
-      .filter(contact => contact.type === 'customer')
+    return contacts
+      .filter(contact => contact.type === 'client')
       .sort((a, b) => a.date < b.date);
   },
   showModal: false
