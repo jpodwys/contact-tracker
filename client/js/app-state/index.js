@@ -15,12 +15,12 @@ export default {
   get leads() {
     return contacts
       .filter(contact => contact.type === 'lead')
-      .sort((a, b) => a.date < b.date);
+      .sort((a, b) => a.date > b.date);
   },
   get clients() {
     return contacts
       .filter(contact => contact.type === 'client')
-      .sort((a, b) => a.date < b.date);
+      .sort((a, b) => a.date > b.date);
   },
   showModal: false
 };

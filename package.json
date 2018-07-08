@@ -22,6 +22,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "compression": "^1.7.2",
+    "dayjs": "^1.7.2",
     "del": "^3.0.0",
     "express": "4.13.1",
     "force-ssl-heroku": "1.0.2",

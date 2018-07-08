@@ -5,13 +5,14 @@ function linkstate (el, { key, val, cb }) {
 };
 
 function addContact(el, { name, view }) {
-  const contact = {
+  const now = Date.now();
+  el.state.contacts.push({
     name,
-    id: Date.now(),
+    id: now,
+    date: now,
     type: view.slice(0, -1),
-    color: generateHexCode()
-  };
-  el.state.contacts.push(contact);
+    color: generateHexCode(),
+  });
   el.setState({ contacts: [].concat(el.state.contacts) });
 };
 
@@ -21,7 +22,7 @@ function removeContact(el, { id }) {
   el.setState({ contacts: [].concat(el.state.contacts) });
 };
 
-function updateContact(el, { contact }) {
+function updateContact(el, { id, contact }) {
   const contactIndex = findObjectIndexById(id, el.state.contacts);
   const oldContact = el.state.contacts[contactIndex];
   el.state.contacts[contactIndex] = Object.assign(oldContact, contact);
