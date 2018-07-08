@@ -11,7 +11,6 @@ export default class App extends Component {
   
   componentWillMount() {
     freedux(this, actions);
-    window.state = this.state;
   }
 
   render(props, state) {
