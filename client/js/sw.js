@@ -9,7 +9,7 @@ self.addEventListener('install', function(e) {
  
 self.addEventListener('fetch', function(e) {
   e.respondWith(fromCache(e.request));
-  if(~url.indexOf('manifest') || ~url.indexOf('icon')) return;
+  if(~e.request.url.indexOf('manifest') || ~e.request.url.indexOf('icon')) return;
   e.waitUntil(update(e.request));
 });
  

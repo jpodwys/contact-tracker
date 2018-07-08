@@ -40,9 +40,9 @@ export default class Header extends Component {
 				</span>
 				*/}
 
-				<span class="button button--fab add-entry elevated grow">
+				<span class="button button--fab add-entry elevated grow" onclick={fire('linkstate', {key: 'showModal', val: true})}>
 					<a>
-						<Icon icon="clear" key="header-add" onclick={fire('linkstate', {key: 'showModal', val: true})}/>
+						<Icon icon="clear" key="header-add"/>
 					</a>
 				</span>
 			</header>

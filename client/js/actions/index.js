@@ -1,4 +1,5 @@
 import { findObjectIndexById, removeObjectByIndex, generateHexCode } from '../utils';
+const tenYearsInMiliseconds = 315569520000;
 
 function linkstate (el, { key, val, cb }) {
   el.setState({ [key]: val }, cb);
@@ -9,11 +10,12 @@ function addContact(el, { name, view }) {
   el.state.contacts.push({
     name,
     id: now,
-    date: now,
+    isNew: true,
     type: view.slice(0, -1),
     color: generateHexCode(),
+    date: now - tenYearsInMiliseconds,
   });
-  el.setState({ contacts: [].concat(el.state.contacts) });
+  el.setState({ contacts: [].concat(el.state.contacts), showModal: false });
 };
 
 function removeContact(el, { id }) {

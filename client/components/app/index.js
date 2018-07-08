@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import Header from '../header';
-import Contact from '../contact';
+import Contacts from '../contacts';
 import Modal from '../modal';
 import state from '../../js/app-state';
 import actions from '../../js/actions';
@@ -20,12 +20,14 @@ export default class App extends Component {
 
     return (
       <div>
-        <h1>Testing</h1>
-        <Header view={ state.view }/>
-        <main>
-          { contacts.map(contact => <Contact {...contact}/>) }
-        </main>
-        {/* <Footer view={ state.view }/> */}
+        <div class={state.showModal ? 'blur' : ''}>
+          <h1>Testing</h1>
+          <Header view={state.view}/>
+          <main>
+            <Contacts contacts={contacts} view={state.view}/>
+          </main>
+          {/* <Footer view={ state.view }/> */}
+        </div>
         {state.showModal &&
           <Modal view={state.view}/>
         }

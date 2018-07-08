@@ -165,7 +165,6 @@ svg {
 input {
   font-size: 20px;
   border-radius: 4px;
-  border: 1px grey;
 }
 
 a, a:visited {
@@ -175,11 +174,26 @@ a, a:visited {
 
 main {
   margin: 0 auto;
-  max-width: 800px;
-  padding: 60px 15px 75px;
+  max-width: 400px;
+  padding: 2px 5px;
 }
 
-.entry-preview {
+.contact {
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.contact h3 {
+  margin-top: 0;
+}
+
+.no-data {
+  margin-top: 50%;
+}
+
+/*.entry-preview {
   position: relative;
 }
 
@@ -191,10 +205,9 @@ main {
   position: absolute;
   top: 10px;
   right: 0;
-}
+}*/
 
 .elevated {
-  /*filter: drop-shadow(0 4px 4px #9c9c9c);*/
   box-shadow: 0 5px 5px #c1c1c1;
 }
 
@@ -224,24 +237,24 @@ main {
   border-radius: 30px;
 }
 
-.grow {
+/*.grow {
   flex: 1 2;
-}
+}*/
 
-.right {
+/*.right {
   float: right;
 }
 
 .left {
   float: left;
-}
+}*/
 
-.search-form {
+/*.search-form {
   margin: 0;
   max-width: 300px;
-}
+}*/
 
-.search-form input {
+/*.search-form input {
   padding: 8px;
   width: 100%;
   background: transparent;
@@ -249,17 +262,17 @@ main {
   outline: 0;
   border: 0;
   color: #fff;
-}
+}*/
 
-.search-form input::placeholder {
+/*.search-form input::placeholder {
   color: #fff;
-}
+}*/
 
 .center-text {
   text-align: center;
 }
 
-.full-width {
+/*.full-width {
   width: 100%;
 }
 
@@ -340,6 +353,34 @@ main {
   position: relative;
   height: 40px;
   overflow: hidden;
+}*/
+
+.modal.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #80808052;
+}
+
+.modal .dialog {
+  display: inline-block;
+  width: 350px;
+  left: calc(50% - 175px);
+  position: relative;
+  top: 50%;
+  background-color: white;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.modal .dialog form {
+  margin: 25px 0;
+}
+
+.blur {
+  filter: blur(5px);
 }
 
 @media (min-width: 850px) {
