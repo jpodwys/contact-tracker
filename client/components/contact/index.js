@@ -1,10 +1,11 @@
 import { h, Component } from 'preact';
 import dayjs from 'dayjs';
-import RelativeTime from '../../js/dayjs-plugin-RelativeTime-grrr.js'
+// import RelativeTime from 'dayjs/plugin/relativeTime'
 import Icon from '../icon';
 import fire from '../../js/fire';
 
-dayjs.extend(RelativeTime);
+// dayjs.extend(RelativeTime);
+dayjs.extend(dayjs_plugin_relativeTime);
 
 export default class Contact extends Component {
   render({ id, type, name, date, color, isNew }) {
