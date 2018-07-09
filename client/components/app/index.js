@@ -1,16 +1,18 @@
 import { h, Component } from 'preact';
 import Header from '../header';
 import Contacts from '../contacts';
-import Modal from '../modal';
+import Modals from '../modals';
 import state from '../../js/app-state';
 import actions from '../../js/actions';
 import freedux from '../../js/freedux';
+import fire from '../../js/fire';
 
 export default class App extends Component {
   state = state;
   
   componentWillMount() {
     freedux(this, actions);
+    // window.state = this.state;
   }
 
   render(props, state) {
@@ -20,16 +22,20 @@ export default class App extends Component {
 
     return (
       <div>
-        <div class={state.showModal ? 'blur' : ''}>
+        <div class={state.modal ? 'blur' : ''}>
           <h1>Testing</h1>
           <Header view={state.view}/>
-          <main>
-            <Contacts contacts={contacts} view={state.view}/>
+          <main class="slide-up">
+            <Contacts
+              contacts={contacts}
+              view={state.view}/>
           </main>
-          {/* <Footer view={ state.view }/> */}
         </div>
-        {state.showModal &&
-          <Modal view={state.view}/>
+        {state.modal &&
+          <Modals
+            view={state.view}
+            modal={state.modal}
+            pendingDeleteId={state.pendingDeleteId}/>
         }
       </div>
     );

@@ -9,18 +9,15 @@ export default {
   },
   get contacts() { return contacts; },
   set contacts(c) {
-    contacts = c;
-    localStorage.setItem('contacts', JSON.stringify(c));
+    contacts = c.sort((a, b) => a.date > b.date);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
   },
   get leads() {
-    return contacts
-      .filter(contact => contact.type === 'lead')
-      .sort((a, b) => a.date > b.date);
+    return contacts.filter(contact => contact.type === 'lead');
   },
   get clients() {
-    return contacts
-      .filter(contact => contact.type === 'client')
-      .sort((a, b) => a.date > b.date);
+    return contacts.filter(contact => contact.type === 'client');
   },
-  showModal: false
+  modal: false,
+  pendingDeleteId: -1
 };
