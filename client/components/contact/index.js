@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import dayjs from 'dayjs';
-const RelativeTime = require('dayjs/plugin/RelativeTime');
+import RelativeTime from 'dayjs/plugin/RelativeTime'
 import Icon from '../icon';
 import fire from '../../js/fire';
 
