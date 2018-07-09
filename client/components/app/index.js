@@ -5,7 +5,6 @@ import Modals from '../modals';
 import state from '../../js/app-state';
 import actions from '../../js/actions';
 import freedux from '../../js/freedux';
-import fire from '../../js/fire';
 
 export default class App extends Component {
   state = state;
