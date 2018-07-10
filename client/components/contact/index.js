@@ -8,6 +8,14 @@ import fire from '../../js/fire';
 dayjs.extend(dayjs_plugin_relativeTime);
 
 export default class Contact extends Component {
+  handleUpdateContact = e => {
+    fire('updateContact', {
+      id: this.props.id,
+      date: Date.now(),
+      isNew: false
+    })();
+  }
+
   render({ id, type, name, date, color, isNew }) {
     const ago = isNew
       ? 'Never'
@@ -17,7 +25,7 @@ export default class Contact extends Component {
       <div class="contact-wrapper" key={id}>
         <div class="contact"
           style={"background-color:" + color}
-          onclick={fire('updateContact', {id, date: Date.now(), isNew: false})}>
+          onclick={this.handleUpdateContact}>
           <h3>{name}</h3>
           <span>{ago}</span>
         </div>
