@@ -74,4 +74,14 @@ function build() {
   )();
 }
 
+function release() {
+  return gulp.series(
+    clean,
+    gulp.parallel(scripts, sw, manifest, images),
+    styles,
+    inline
+  )();
+}
+
 gulp.task('default', build);
+gulp.task('release', release);
