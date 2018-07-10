@@ -31,7 +31,7 @@ app.use(function(req, res, next){
 
 /* Catch-all view route */
 app.get('/*', function(req, res){
-  res.sendFile('index.html', {root: './dist', maxAge: '30d'});
+  res.sendFile('index.html', {root: './docs', maxAge: '30d'});
 });
 
 var server = app.listen(PORT);
