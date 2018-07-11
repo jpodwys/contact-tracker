@@ -13,7 +13,7 @@ var express = require('express'),
 app.disable('x-powered-by');
 app.use(forceSsl);
 app.use(compress({threshold: '1.4kb'}));
-app.use(express.static('dist', {maxAge: '0h'}));
+app.use(express.static('docs', {maxAge: '0h'}));
 app.use(function(req, res, next){
   res.header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
   next();

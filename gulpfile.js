@@ -36,6 +36,11 @@ function images() {
     .pipe(gulp.dest('./docs'));
 }
 
+function audio() {
+  return gulp.src('client/audio/**.*')
+    .pipe(gulp.dest('./docs'));
+}
+
 function manifest() {
   return gulp.src('client/manifest.json')
     .pipe(gulp.dest('./docs'));
@@ -68,7 +73,7 @@ function build() {
   return gulp.series(
     clean,
     serve,
-    gulp.parallel(scripts, sw, manifest, images),
+    gulp.parallel(scripts, sw, manifest, images, audio),
     styles,
     inline
   )();
@@ -77,7 +82,7 @@ function build() {
 function release() {
   return gulp.series(
     clean,
-    gulp.parallel(scripts, sw, manifest, images),
+    gulp.parallel(scripts, sw, manifest, images, audio),
     styles,
     inline
   )();

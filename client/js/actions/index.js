@@ -33,6 +33,7 @@ function removeContact(el, { id }) {
 function updateContact(el, contact) {
   const contactIndex = findObjectIndexById(contact.id, el.state.contacts);
   const oldContact = el.state.contacts[contactIndex];
+  if(oldContact.type !== 'client' && contact.type === 'client') el.base.querySelector('#audio').play();
   el.state.contacts[contactIndex] = Object.assign(oldContact, contact);
   el.setState({ contacts: [].concat(el.state.contacts), modal: false });
 };

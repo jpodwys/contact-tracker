@@ -34,6 +34,7 @@ export default class App extends Component {
             modal={state.modal}
             pendingDeleteId={state.pendingDeleteId}/>
         }
+        <audio id="audio" class="invisible" src="yaay.mp3" type="audio/mpeg"/>
       </div>
     );
   }
