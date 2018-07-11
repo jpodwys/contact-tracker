@@ -24,7 +24,7 @@ export default class App extends Component {
           <Header
             view={state.view}
             muted={state.muted}
-            history={sate.history}/>
+            history={state.history}/>
           <main class="slide-up">
             <Contacts
               contacts={contacts}

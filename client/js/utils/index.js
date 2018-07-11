@@ -1,3 +1,11 @@
+function clone(obj) {
+  return Object.assign({}, obj);
+};
+
+function sortByDate(a, b) {
+  return a.date > b.date;
+};
+
 function findObjectIndexById (id, list) {
   return list.map(obj => obj.id).indexOf(id);
 };
@@ -25,4 +33,4 @@ function generateHexCode () {
     .map(s => "00".slice(s.length) + s).join('');
 };
 
-export { findObjectIndexById, removeObjectByIndex, generateHexCode };
+export { findObjectIndexById, removeObjectByIndex, generateHexCode, clone, sortByDate };

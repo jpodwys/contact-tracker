@@ -1,11 +1,15 @@
+import { clone, sortByDate } from '../utils';
+
+let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
 let state = {
-  history: [],
   undo: false,
   modal: false,
+  contacts: contacts.sort(sortByDate),
+  history: [contacts.map(clone)],
   pendingDeleteId: -1,
-  view localStorage.getItem('view') || 'leads',
   muted: !!localStorage.getItem('muted'),
-  contacts: JSON.parse(localStorage.getItem('contacts')) || []
+  view: localStorage.getItem('view') || 'leads'
 };
 
 const handler = {
@@ -22,17 +26,18 @@ const handler = {
   set: function(obj, prop, value) {
     obj[prop] = value;
     switch(prop) {
-      case 'view':     localStorage.setItem(prop, value);     break;
-      case 'muted':    localStorage.setItem(prop, !!value);   break;
+      case 'view':    localStorage.setItem(prop, value);     break;
+      case 'muted':   localStorage.setItem(prop, !!value);   break;
       case 'contacts': {
-        localStorage.setItem(prop, JSON.stringify(value));
-        if(obj.undo){
-          obj.history.push(obj);
-          obj.undo = false;
-        }
+        let contacts = value.sort(sortByDate);
+        obj[prop] = contacts;
+        localStorage.setItem(prop, JSON.stringify(contacts));
+        if(obj.undo) obj.undo = false;
+        else obj.history.push(contacts.map(clone));
         break;
       }
     }
+    return true;
   }
 };
 
