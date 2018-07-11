@@ -3,7 +3,7 @@ import Icon from '../icon';
 import fire from '../../js/fire';
 
 export default class Header extends Component {
-	render({ view, muted }) {
+	render({ view, muted, history }) {
 		return (
 			<header class="elevated">
 				<span class="nav-set flex-grow">
@@ -13,6 +13,9 @@ export default class Header extends Component {
 				  {muted &&
 				  	<Icon icon="sound-off" key="header-sound-off" onclick={fire('linkstate', {key: 'muted', val: !muted})} class="grow"/>
 				  }
+					{history.length &&
+						<Icon icon="undo" key="header-undo" onclick={fire('undo')} class="grow"/>
+					}
 				</span>
 
 				<span class="nav-set">

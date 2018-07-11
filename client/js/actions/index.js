@@ -1,12 +1,17 @@
 import { findObjectIndexById, removeObjectByIndex, generateHexCode } from '../utils';
 const tenYearsInMiliseconds = 315569520000;
 
+function undo(el) {
+  const contacts = el.state.history.pop();
+  el.setState({ undo: true, contacts });
+};
+
 function playAudio(muted, oldType, newType, audio) {
   if(muted || oldType === 'client' || newType !== 'client') return;
   audio.pause();
   audio.currentTime = 0;
   audio.play();
-}
+};
 
 function linkstate (el, { key, val, cb }) {
   el.setState({ [key]: val }, cb);
