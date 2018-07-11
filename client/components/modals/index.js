@@ -22,10 +22,11 @@ export default class Modals extends Component {
   }
   render({ view, modal, pendingDeleteId }) {
     let markup;
+    let singularView = view.slice(0, -1);
     if(modal === 'add') {
       markup = (
         <form onsubmit={this.handleSubmit}>
-          <h2>{'Add a ' + view.slice(0, -1)}</h2>
+          <h2>{'Add a ' + singularView}</h2>
           <input id="addName" placeholder="Name"/>
           <input type="submit" value="Add"/>
         </form>
@@ -34,7 +35,7 @@ export default class Modals extends Component {
       markup = (
         <div>
           <h2>Are you sure?</h2>
-          <input type="submit" class="destructive" value="Delete" onclick={fire('removeContact', {id: pendingDeleteId})}>{'Delete ' + view.slice(0, -1)}</input>
+          <input type="submit" class="destructive" value={'Delete ' + singularView} onclick={fire('removeContact', {id: pendingDeleteId})}>{'Delete ' + view.slice(0, -1)}</input>
         </div>
       );
     }

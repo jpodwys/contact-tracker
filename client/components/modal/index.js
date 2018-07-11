@@ -11,8 +11,8 @@ export default class Modal extends Component {
 
   render({ view, children }) {
     return (
-      <div class="modal overlay grow" onclick={this.handleOverlayClick}>
-        <div class="dialog">
+      <div class="modal overlay fade-in" onclick={this.handleOverlayClick}>
+        <div class="dialog grow">
           {children[0]}
         </div>
       </div>
