@@ -3,7 +3,7 @@ import Icon from '../icon';
 import fire from '../../js/fire';
 
 export default class Header extends Component {
-	render({ view, muted }) {
+	render({ view, muted, history }) {
 		return (
 			<header class="elevated">
 				<span class="nav-set flex-grow">
