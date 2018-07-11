@@ -18,6 +18,11 @@ export default class Icon extends Component {
                 <path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                 <path d="M0 0h24v24H0z" fill="none"/>
               </g>
+      case 'undo':
+      return <g>
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M12.5 8c-2.6 0-5 1-6.9 2.6L2 7v9h9l-3.6-3.6A8 8 0 0 1 20 16l2.4-.8a10.5 10.5 0 0 0-10-7.2z"/>
+            </g>
       case 'sound-on':
         return <g>
                 <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2a7 7 0 0 1 0 13.5v2a9 9 0 0 0 0-17.5z"/>

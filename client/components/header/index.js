@@ -13,6 +13,9 @@ export default class Header extends Component {
 				  {muted &&
 				  	<Icon icon="sound-off" key="header-sound-off" onclick={fire('linkstate', {key: 'muted', val: !muted})} class="grow"/>
 				  }
+				  {history.length > 1 &&
+				  	<Icon icon="undo" key="header-undo" onclick={fire('undo')} class="grow"/>
+				  }
 				</span>
 
 				<span class="nav-set">

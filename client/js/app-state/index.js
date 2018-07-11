@@ -1,4 +1,5 @@
-let history = [];
+import { clone, sortByDate } from '../utils';
+
 let muted = !!localStorage.getItem('muted');
 let view = localStorage.getItem('view') || 'leads';
 let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
@@ -19,10 +20,10 @@ export default {
 
   get contacts() { return contacts; },
   set contacts(c) {
-    contacts = c.sort((a, b) => a.date > b.date);
+    contacts = c.sort(sortByDate);
     localStorage.setItem('contacts', JSON.stringify(contacts));
     if(this.undo) this.undo = false;
-    else history.push(contacts);
+    else this.history.push(contacts.map(clone));
   },
 
   get leads() {
@@ -34,7 +35,7 @@ export default {
   },
 
   undo: false,
-  history: history,
   modal: false,
-  pendingDeleteId: -1
+  pendingDeleteId: -1,
+  history: [contacts.map(clone)]
 };
