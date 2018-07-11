@@ -8,7 +8,7 @@ let state = {
   contacts: contacts.sort(sortByDate),
   history: [contacts.map(clone)],
   pendingDeleteId: -1,
-  muted: !!localStorage.getItem('muted'),
+  muted: localStorage.getItem('muted') === 'true',
   view: localStorage.getItem('view') || 'leads'
 };
 
