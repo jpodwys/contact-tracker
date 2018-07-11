@@ -21,7 +21,9 @@ export default class App extends Component {
     return (
       <div>
         <div class={state.modal ? 'blur' : ''}>
-          <Header view={state.view}/>
+          <Header
+            view={state.view}
+            muted={state.muted}/>
           <main class="slide-up">
             <Contacts
               contacts={contacts}

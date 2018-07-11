@@ -1,6 +1,13 @@
 import { findObjectIndexById, removeObjectByIndex, generateHexCode } from '../utils';
 const tenYearsInMiliseconds = 315569520000;
 
+function playAudio(muted, oldType, newType, audio) {
+  if(muted || oldType === 'client' || newType !== 'client') return;
+  audio.pause();
+  audio.currentTime = 0;
+  audio.play();
+}
+
 function linkstate (el, { key, val, cb }) {
   el.setState({ [key]: val }, cb);
 };
@@ -33,7 +40,7 @@ function removeContact(el, { id }) {
 function updateContact(el, contact) {
   const contactIndex = findObjectIndexById(contact.id, el.state.contacts);
   const oldContact = el.state.contacts[contactIndex];
-  if(oldContact.type !== 'client' && contact.type === 'client') el.base.querySelector('#audio').play();
+  playAudio(el.state.muted, oldContact.type, contact.type, el.base.querySelector('#audio'));
   el.state.contacts[contactIndex] = Object.assign(oldContact, contact);
   el.setState({ contacts: [].concat(el.state.contacts), modal: false });
 };

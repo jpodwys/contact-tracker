@@ -403,6 +403,10 @@ input[type=submit] {
   visibility: hidden;
 }
 
+.flex-grow {
+  flex: 1 2;
+}
+
 input {
   padding: 5px;
   font-size: 20px;
