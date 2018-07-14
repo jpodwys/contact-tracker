@@ -9,11 +9,19 @@ function undo(el) {
   el.setState({ undo: true, contacts: [].concat(contacts) });
 };
 
-function playAudio(muted, oldType, newType, audio) {
-  if(muted || oldType === 'client' || newType !== 'client') return;
+function play(audio) {
   audio.pause();
   audio.currentTime = 0;
   audio.play();
+}
+
+function playAudio(base, muted, oldType, newType) {
+  if(muted) return;
+  if(oldType === 'lead' && newType === 'client'){
+    play(base.querySelector('#yay'));
+  } else if(oldType === 'client' && newType === 'lead'){
+    play(base.querySelector('#aww'));
+  }
 };
 
 function linkstate (el, { key, val, cb }) {
@@ -48,7 +56,7 @@ function removeContact(el, { id }) {
 function updateContact(el, contact) {
   const contactIndex = findObjectIndexById(contact.id, el.state.contacts);
   const oldContact = el.state.contacts[contactIndex];
-  playAudio(el.state.muted, oldContact.type, contact.type, el.base.querySelector('#audio'));
+  playAudio(el.base, el.state.muted, oldContact.type, contact.type);
   el.state.contacts[contactIndex] = Object.assign({}, oldContact, contact);
   el.setState({ contacts: [].concat(el.state.contacts), modal: false });
 };
