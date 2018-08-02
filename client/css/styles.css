@@ -133,6 +133,10 @@ header .nav-set > *:not(h1) {
   padding: 5px;
 }
 
+.full-height {
+  height: 90%;
+}
+
 /*.nav-set svg:hover {
   fill: orange;
 }

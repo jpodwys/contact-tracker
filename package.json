@@ -13,8 +13,7 @@
     "serve": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
@@ -43,6 +42,8 @@
     "gulp-webpack": "^1.5.0",
     "nodemon": "1.8.1",
     "preact": "^8.2.5",
+    "preact-compat": "^3.18.0",
+    "react-swipeable-views": "^0.12.14",
     "uglifyjs-webpack-plugin": "^1.1.8",
     "webpack": "^3.6.0"
   },

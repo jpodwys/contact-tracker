@@ -5,11 +5,11 @@ let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
 let state = {
   undo: false,
   modal: false,
-  contacts: contacts.sort(sortByDate),
-  history: [contacts.map(clone)],
   pendingDeleteId: -1,
-  muted: localStorage.getItem('muted') === 'true',
-  view: localStorage.getItem('view') || 'leads'
+  history: [contacts.map(clone)],
+  contacts: contacts.sort(sortByDate),
+  view: localStorage.getItem('view') || 'leads',
+  muted: localStorage.getItem('muted') === 'true'
 };
 
 const handler = {
