@@ -1,11 +1,7 @@
 import { h, Component } from 'preact';
-import dayjs from 'dayjs';
-// import RelativeTime from 'dayjs/plugin/relativeTime'
 import Icon from '../icon';
 import fire from '../../js/fire';
-
-// dayjs.extend(RelativeTime);
-dayjs.extend(dayjs_plugin_relativeTime);
+import fromNow from '../../js/from-now';
 
 export default class Contact extends Component {
   handleUpdateContact = e => {
@@ -19,7 +15,7 @@ export default class Contact extends Component {
   render({ id, type, name, date, color, isNew }) {
     const ago = isNew
       ? 'Never'
-      : dayjs().to(dayjs(date));
+      : fromNow(date, { max: 1, ago: true });
 
     return (
       <div class="contact-wrapper" key={id}>

@@ -13,11 +13,13 @@
     "serve": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
     "css-loader": "^0.28.9",
+    "fromnow": "^2.2.1",
     "gulp-babel": "^7.0.1",
     "watchify": "3.7.0",
     "babel-core": "^6.26.0",
@@ -28,7 +30,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "compression": "^1.7.2",
-    "dayjs": "^1.7.2",
     "del": "^3.0.0",
     "express": "4.13.1",
     "force-ssl-heroku": "1.0.2",
