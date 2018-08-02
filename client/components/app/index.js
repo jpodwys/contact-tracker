@@ -15,7 +15,7 @@ export default class App extends Component {
   
   componentWillMount() {
     freedux(this, actions);
-    window.app = this;
+    // window.app = this;
   }
 
   handleChangeIndex = index => {
